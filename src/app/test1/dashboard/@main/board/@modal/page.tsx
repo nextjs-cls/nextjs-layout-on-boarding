@@ -1,8 +1,7 @@
 'use client'
 
-import {redirect} from "next/navigation";
 
 export default function Model() {
-
-    return null
+    console.log("*** Modal!!! ***");
+    return null;
 }

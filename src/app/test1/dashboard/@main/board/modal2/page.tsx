@@ -5,11 +5,17 @@ import { useRouter } from 'next/navigation';
 
 export default function Modal2() {
     const router = useRouter();
-    const closeModal = () => router.back();
+    // const closeModal = () => router.back();
 
+    const closeModal = (e: { preventDefault: () => void, stopPropagation: () => void; }) => {
+        e.preventDefault();
+        e.stopPropagation();
+        router.back(); // /dashboard/@main/board 로 복귀
+        // router.push('/test1/dashboard/board');
+    };
     console.log("Modal2");
 
-    // return null;
+    return null;
     return (
         <div
             style={{

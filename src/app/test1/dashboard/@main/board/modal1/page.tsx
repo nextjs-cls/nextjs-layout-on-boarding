@@ -2,6 +2,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+// import { redirect } from 'next/navigation';
 
 export default function Modal1() {
     const router = useRouter();
@@ -10,12 +11,18 @@ export default function Modal1() {
         router.push('/test1/dashboard/board/modal2');
     };
 
-    const closeModal = () => {
-        router.back(); // /dashboard/@main/board 로 복귀
+    const closeModal = (e: { preventDefault: () => void, stopPropagation: () => void; }) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // router.back(); // /dashboard/@main/board 로 복귀
+        // router.push('/test1/dashboard/board');
+
+        // 'use server';
+        // redirect('/test1/dashboard/board');
+
     };
 
     console.log("Modal1");
-    // return null;
     return (
         <div
             style={{
